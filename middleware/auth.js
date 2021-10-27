@@ -1,8 +1,8 @@
 function auth(req, res, next) {
-  if (req.isAuthenticated) {
+  if (req.isAuthenticated()) {
     return next()
   }
-  req.flash('warning_msg', 'Please login first!')
+  req.flash('warning_msg', '請先登入！')
   res.redirect('/users/login')
 }
 

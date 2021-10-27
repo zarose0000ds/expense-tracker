@@ -14,13 +14,16 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid px-4">
           <a class="navbar-brand fw-bold" href="/">家庭記帳本</a>
           {{#if isAuthenticated}}
-          <a class="btn btn-outline-secondary" href="/users/logout" role="button">Logout</a>
+          <a class="btn btn-outline-warning fw-bold border-2" href="/users/logout" role="button">登出</a>
           {{else}}
-          <a class="btn btn-outline-secondary" href="/users/login" role="button">Login</a>
+          <div class="nav-btn-wrapper">
+            <a class="btn btn-outline-warning fw-bold border-2" href="/users/login" role="button">登入</a>
+            <a class="btn btn-outline-warning fw-bold border-2 ms-3" href="/users/register" role="button">註冊</a>
+          </div>
           {{/if}}
         </div>
       </nav>

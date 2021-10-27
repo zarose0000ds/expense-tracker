@@ -11,10 +11,10 @@ module.exports = app => {
   // STRATEGY
   passport.use(new LocalStrategy({ usernameField: 'email', passReqToCallback: true }, (req, email, password, done) => {
     User.findOne({ email }).then(user => {
-      if (!user) return done(null, false, req.flash('warning_msg', 'The email is not registered!'))
+      if (!user) return done(null, false, req.flash('warning_msg', '此Email尚未註冊！'))
 
       return bcrypt.compare(password, user.password).then(isMatch => {
-        if (!isMatch) return done(null, false, req.flash('warning_msg', 'The email or password incorrect!'))
+        if (!isMatch) return done(null, false, req.flash('warning_msg', 'Email或密碼輸入錯誤！'))
         return done(null, user)
       })
     }).catch(e => done(e, false))
