@@ -18,10 +18,11 @@ db.once('open', () => {
   const categories = []
 
   CATEGORY_NAMES.forEach((name, id) => {
+    const faIcon = CATEGORY[name].split('/').pop().split('?')[0] //GET FONT AWESOME ICON NAME FOR <i class="fas fa-{{name}}"></i>
     const category = {
       id: id + 1,
       name,
-      icon: CATEGORY[name]
+      faIcon
     }
     categories.push(category)
   })

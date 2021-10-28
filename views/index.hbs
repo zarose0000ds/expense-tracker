@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <!-- category selects -->
+      <div class="form-floating">
+        <select class="form-select" id="categorySelect" aria-label="Floating label select example">
+          <option value="0" selected>全部</option>
+          {{#each categorySelect}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+        <label for="categorySelect">支出類別</label>
+      </div>
+
+      <!-- total amount -->
+      <div class="px-3 mt-3 d-flex justify-content-between">
+        <p class="fs-4 fw-bold text-muted">總金額：</p>
+        <p class="total-amount">0</p>
+      </div>
+
+      <!-- item list -->
+      <ul class="list-group">
+        {{#each records}}
+        <li class="list-group-item py-3 px-4" data-category="{{this.categoryId}}">
+          <div class="w-75 d-flex align-items-center">
+            <div class="category-icon-wrapper">
+              <i class="category-icon fas fa-{{this.icon}}"></i>
+            </div>
+            <div class="ms-2">
+              <h3 class="fw-bold mb-0">{{this.name}}</h3>
+              {{this.dateString}}
+            </div>
+          </div>
+          <div class="item-amount align-middle fs-4">{{this.amount}}</div>
+          <div class="item-btn-wrapper">
+            <a href="/records/{{this.id}}/edit" role="button" class="item-btn btn btn-outline-secondary fs-5">修改</a>
+            <form action="/records/{{this.id}}?_method=DELETE" method="POST">
+              <button type="button" class="item-btn btn btn-outline-danger fs-5">刪除</button>
+            </form>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+
+      <!-- new record -->
+      <div class="new-btn-wrapper">
+        <a href="/records/new" role="button" class="new-btn btn btn-primary">新增支出</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascripts/index.js"></script>

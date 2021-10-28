@@ -46,6 +46,9 @@ app.use((req, res, next) => {
   next()
 })
 
+// STATIC FILES
+app.use(express.static('public'))
+
 // ROUTER
 app.use(routes)
 
