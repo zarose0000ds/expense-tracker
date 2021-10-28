@@ -1,25 +1,29 @@
-<div class="container mt-5">
+<div class="container">
   <div class="row">
     <div class="col-5 mx-auto">
-      <!-- category selects -->
-      <div class="form-floating">
-        <select class="form-select" id="categorySelect" aria-label="Floating label select example">
-          <option value="0" selected>全部</option>
-          {{#each categorySelect}}
-          <option value="{{this.id}}">{{this.name}}</option>
-          {{/each}}
-        </select>
-        <label for="categorySelect">支出類別</label>
+      <div class="panel-wrapper">
+        <div class="panels">
+          <!-- category selects -->
+          <div class="form-floating">
+            <select class="form-select" id="categorySelect" aria-label="Floating label select example">
+              <option value="0" selected>全部</option>
+              {{#each categorySelect}}
+              <option value="{{this.id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+            <label for="categorySelect">支出類別</label>
+          </div>
+
+          <!-- total amount -->
+          <div class="px-3 mt-3 d-flex justify-content-between">
+            <p class="fs-4 fw-bold text-muted">總金額：</p>
+            <p class="total-amount">0</p>
+          </div>
+        </div>
       </div>
 
-      <!-- total amount -->
-      <div class="px-3 mt-3 d-flex justify-content-between">
-        <p class="fs-4 fw-bold text-muted">總金額：</p>
-        <p class="total-amount">0</p>
-      </div>
-
-      <!-- item list -->
-      <ul class="list-group">
+      <!-- record list -->
+      <ul class="record-list list-group">
         {{#each records}}
         <li class="list-group-item py-3 px-4" data-category="{{this.categoryId}}">
           <div class="w-75 d-flex align-items-center">
