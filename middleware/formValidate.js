@@ -5,7 +5,7 @@ module.exports = {
       const dateNow = Date.now()
       const errors = []
 
-      if (!name || !date || !categoryId || !amount) {
+      if (!name || !date || Number(categoryId) <= 0 || !amount) {
         errors.push({ message: '請填寫所有必填項目！' })
       }
       if (date && Date.parse(date) > dateNow) {
