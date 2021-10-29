@@ -16,7 +16,7 @@ header {
   background: white;
 }
 
-.panels {
+.panel {
   width: 36%;
   margin: 0 auto;
 }
@@ -32,7 +32,7 @@ header {
 
 .list-group-item {
   position: relative;
-  border: ;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-5 mx-auto mt-5">
+      <div class="row mb-5 align-items-center">
+        <p class="col-sm-2 m-0" style="font-size: 0.9rem;">*必填欄位</p>
+        <h3 class="col-sm-10 text-center fw-bold m-0">請輸入你的支出</h1>
+      </div>
+      {{> message}}
+      <form action="/records/new" method="POST">
+        <div class="row mb-5">
+          <label for="name" class="col-sm-2 col-form-label fw-bold">名稱*：</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name" value="{{record.name}}">
+          </div>
+        </div>
+        <div class="row mb-5">
+          <label for="date" class="col-sm-2 col-form-label fw-bold">日期*：</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="date" name="date" value="{{record.date}}">
+          </div>
+        </div>
+        <div class="row mb-5">
+          <label for="category" class="col-sm-2 col-form-label fw-bold">類別*：</label>
+          <div class="col-sm-10">
+            <select class="form-select" id="category" name="categoryId" aria-label="Floating label select category">
+              <option value="0">Select</option>
+              {{#each category}}
+              <option value="{{this.id}}" {{this.selected}}>{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <label for="amount" class="col-sm-2 col-form-label fw-bold">金額*：</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="amount" name="amount" value="{{record.amount}}">
+          </div>
+        </div>
+        <div class="text-center py-3">
+          <button type="submit" class="btn btn-primary w-75 fw-bold">新增支出</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
