@@ -5,6 +5,7 @@ const Record = require('../../models/record')
 
 router.get('/', (req, res) => {
   const userId = req.user.id
+  const importScript = 'index'
 
   // GET USER'S RECORDS SORTED WITH DATE IN DESCENDING ORDER
   Record.find({ userId }).lean().sort({ date: 'desc', id: 'desc' }).then(records => {
@@ -24,7 +25,7 @@ router.get('/', (req, res) => {
           record.icon = category[record.categoryId]
           record.dateString = record.date.toISOString().split('T')[0].replace(/\-/g, '/')
         })
-      }).then(() => res.render('index', { categorySelect, records }))
+      }).then(() => res.render('index', { categorySelect, records, importScript }))
     }
   }).catch(e => console.log(e))
 })
