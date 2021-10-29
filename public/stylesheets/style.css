@@ -38,10 +38,6 @@ header {
   justify-content: space-between;
 }
 
-.list-group-item:nth-child(odd) {
-  background: #eeeeee;
-}
-
 .category-icon-wrapper {
   width: 60px;
   display: flex;

@@ -1,10 +1,26 @@
 const categorySelect = document.querySelector('#categorySelect')
 
-calculateTotalAmount() //INITIALIZE
+//INITIALIZE
+renderListBackground()
+calculateTotalAmount()
+
 categorySelect.addEventListener('change', () => {
   sortRecordCategory()
+  renderListBackground()
   calculateTotalAmount()
 })
+
+function renderListBackground() {
+  // GET CURRENT LIST EXCEPTING HIDDEN RECORDS
+  const records = Array.from(document.querySelectorAll('.list-group-item')).filter(record => !record.matches('.d-none'))
+
+  records.forEach((record, index) => {
+    if (index % 2 === 0) {
+      return record.style.background = '#eeeeee'
+    }
+    record.style.background = 'initial'
+  })
+}
 
 function calculateTotalAmount() {
   const totalAmount = document.querySelector('.total-amount')

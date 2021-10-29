@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   const userId = req.user.id
 
   // GET USER'S RECORDS SORTED WITH DATE IN DESCENDING ORDER
-  Record.find({ userId }).lean().sort({ date: 'desc' }).then(records => {
+  Record.find({ userId }).lean().sort({ date: 'desc', id: 'desc' }).then(records => {
     if (records.length > 0) {
       const category = {} //FOR ID-ICON(FONT AWESOME) PAIRS
       const categorySelect = [] //FOR SELECT OPTIONS CONTENT
